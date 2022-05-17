@@ -2,16 +2,15 @@
 const {
   Model
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => 
   class wallet extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+    static associate = function (models) {
+      wallet.hasMany(models.coin)
+      wallet.hasMany(models.transaction)
     }
+    Wallet.associate = function (models) {
+    Wallet.belongsto (models,coin)
+    Wallet.belongsto (models,transaction);
   }
   wallet.init({
     name: DataTypes.STRING,

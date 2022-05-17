@@ -10,8 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      transaction.hasMany(models.wallet)
+      transaction.hasMany(models.coin)
     }
+    transaction.associate = function (models) {
+    transaction.belongsto (models,coin)
+    transaction.belongsto (models,wallet);
   }
   transaction.init({
     value: DataTypes.DOUBLE,

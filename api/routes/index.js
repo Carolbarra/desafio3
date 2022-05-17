@@ -1,5 +1,7 @@
 const bodyParser = require('body-parser')
+const wallets = require('./walletRoute')
 
 module.exports = app => {
     app.use(bodyParser.json())
-    app.get('api/vi/wallet' , (req,res) => res.send(wallet.js)}
+    app.use(wallets)
+}
